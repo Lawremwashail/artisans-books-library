@@ -1,19 +1,19 @@
-<nav class="bg-gray-800 text-white px-6 py-3 flex justify-between items-center">
-  <!-- Left Side - Brand -->
-  <div class="text-lg font-semibold">
-    <%= link_to "Online Library", root_path, class: "hover:text-gray-300" %>
-  </div>
+<nav class="fixed top-0 left-0 w-full bg-blue-600 text-white shadow-md z-50">
+  <div class="max-w-6xl mx-auto px-4">
+    <div class="flex justify-between items-center py-4">
+      <!-- Logo -->
+      <a href="/" class="text-xl font-bold">Library</a>
 
-  <!-- Right Side - Links -->
-  <div class="flex space-x-4">
-    <% if session[:user_id] %>
-      <%= link_to "Home", root_path, class: "hover:text-gray-300" %>
-      <%= link_to "Books", books_path, class: "hover:text-gray-300" %>
-      <%= link_to "Profile", profile_path, class: "hover:text-gray-300" %>
-      <%= button_to "Logout", logout_path, method: :delete, class: "bg-red-500 px-3 py-1 rounded-md text-white hover:bg-red-600" %>
-    <% else %>
-      <%= link_to "Sign Up", signup_path, class: "hover:text-gray-300" %>
-      <%= link_to "Login", login_path, class: "hover:text-gray-300" %>
-    <% end %>
+      <!-- Navigation Links -->
+      <div class="space-x-6">
+        <a href="/" class="hover:underline <%= 'underline font-semibold' if current_page?(root_path) %>">Home</a>
+        <a href="/books" class="hover:underline <%= 'underline font-semibold' if current_page?(books_path) %>">Books</a>
+        <a href="/profile" class="hover:underline <%= 'underline font-semibold' if current_page?(profile_path) %>">Profile</a>
+        <a href="/logout" class="hover:underline">Logout</a>
+      </div>
+    </div>
   </div>
 </nav>
+
+<!-- Add padding so content is not hidden behind navbar -->
+<div class="pt-16">

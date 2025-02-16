@@ -1,6 +1,17 @@
 <div class="max-w-md mx-auto mt-10 p-6 bg-white shadow-md rounded-lg">
   <h1 class="text-2xl font-bold mb-6 text-center text-gray-700">Sign Up</h1>
 
+  
+  <% if @user.errors.any? %>
+    <div class="mb-4 p-3 bg-red-100 text-red-600 rounded-lg">
+      <ul>
+        <% @user.errors.full_messages.each do |error| %>
+          <li><%= error %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
   <%= form_with model: @user, local: true, class: "space-y-4" do |f| %>
     <div>
       <%= f.label :name, class: "block text-sm font-medium text-gray-700" %>

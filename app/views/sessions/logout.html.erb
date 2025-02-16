@@ -1,0 +1,7 @@
+<div class="max-w-lg mx-auto mt-10 p-6 bg-white shadow rounded">
+  <h2 class="text-2xl font-bold text-gray-800 text-center mb-4">Are you sure you want to log out?</h2>
+  <div class="flex justify-center gap-4">
+    <%= button_to "Yes, Log Out", logout_path, method: :delete, class: "bg-red-500 text-white px-4 py-2 rounded" %>
+    <%= link_to "Cancel", profile_path, class: "bg-gray-500 text-white px-4 py-2 rounded" %>
+  </div>
+</div>

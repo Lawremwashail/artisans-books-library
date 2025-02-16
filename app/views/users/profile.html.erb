@@ -9,6 +9,7 @@
         <tr>
           <th class="border px-4 py-2">Title</th>
           <th class="border px-4 py-2">Author</th>
+          <th class="border px-4 py-2">Due Date</th>
           <th class="border px-4 py-2">Return</th>
         </tr>
       </thead>
@@ -17,6 +18,9 @@
           <tr>
             <td class="border px-4 py-2"><%= book.title %></td>
             <td class="border px-4 py-2"><%= book.author %></td>
+            <td class="border px-4 py-2">
+              <%= (book.created_at + 14.days).strftime('%B %d, %Y') %>
+            </td>
             <td class="border px-4 py-2">
               <%= button_to "Return", return_book_book_path(book), method: :patch, class: "bg-red-500 text-white px-4 py-2 rounded" %>
             </td>
@@ -27,4 +31,4 @@
   <% else %>
     <p class="text-gray-600">You have not borrowed any books.</p>
   <% end %>
-
+</div>
